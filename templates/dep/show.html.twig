@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}departement{% endblock %}
+
+{% block body %}
+    <h1>List Of departement</h1>
+
+    <div> <a href="{{ path('add_dep') }}">Create new departement</a></div>
+
+    <div>
+   <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">nom_dep</th>
+      <th scope="col">Responsable</th>
+      <th scope="col">nbrSalaire</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dep in deps %}
+    
+    <tr>
+      <th scope="row">{{dep.id}}</th>
+      <td>{{dep.getNom_dep}}</td>
+      <td>{{dep.getResponsable}}</td>
+      <td>{{dep.getNbrSalaire}}</td>
+    </tr>
+    {% else %}
+     <tr>
+     
+      <td colspan="4">department NOT FOUND</td>
+     
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+   
+{% endblock %}
